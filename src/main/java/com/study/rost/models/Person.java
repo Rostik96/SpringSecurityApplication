@@ -32,7 +32,7 @@ public class Person {
     @Column(name = "username")
     private String username;
 
-    @Min(value = 1900, message = "Год рождения должен быть больше, чем 1900")
+    @Min(value = 1900, message = "Год рождения должен быть ≥ 1904") //Люсиль Рэндон, Франция
     @Column(name = "year_of_birth")
     private int yearOfBirth;
 
