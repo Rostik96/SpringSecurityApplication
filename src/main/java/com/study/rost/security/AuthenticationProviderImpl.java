@@ -37,18 +37,15 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 
         UserDetails personDetails = personDetailsService.loadUserByUsername(username);
 
-        /**
-         * Пока храним пароли в незашифрованном виде, что неправильно.
-         * //TODO добавить шифрование
-         */
+        //TODO Пока храним пароли в незашифрованном виде, что неправильно ==> добавить шифрование.
         if (!password.equals(personDetails.getPassword()))
-            throw new BadCredentialsException("Incorrect password"); //Также будет отображено в Web-форме by Spring
+            throw new BadCredentialsException("Incorrect password"); //Будет отображено в Web-форме by Spring
 
         return new UsernamePasswordAuthenticationToken(personDetails, password, Collections.emptyList());
     }
 
     /**
-     * Нужен Spring, чтобы понять, для какого именно объекта authentication он будет работает.
+     * Нужен Spring'у, чтобы понять, для какого именно объекта authentication данный provider будет работает.
      * Даёт возможность не использовать AuthenticationProvider там, на что он не рассчитан.
      *
      * @param authentication объект для верификации
