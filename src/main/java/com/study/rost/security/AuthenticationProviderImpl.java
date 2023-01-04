@@ -24,7 +24,9 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
      *
      * @param authentication содержит credentials {@link Authentication#getCredentials()},
      *                       которые будут сравниваться с теми, что лежат в БД.
-     * @return объект {@link Authentication}, который уже содержит объект {@link Principal}
+     * @return объект {@link Authentication}, который уже будет содержать объект {@link Principal} и
+     *         который будет помещён в сессию данного principal'a (пользователя), предосталяя нам доступ
+     *         к его {@link PersonDetails}.
      *
      * @throws AuthenticationException
      */
