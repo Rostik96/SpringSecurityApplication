@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User info</title>
+</head>
+<body>
+<p th:text="'id: ' + ${principal.getId()}">id</p>
+<p th:text="${principal.getUsername()}">username</p>
+<p th:text="${'birth year: ' + principal.getYearOfBirth()}">year of birth</p>
+</body>
+</html>
