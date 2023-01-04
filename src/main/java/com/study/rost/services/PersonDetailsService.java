@@ -28,8 +28,8 @@ public class PersonDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return new PersonDetails(
-                peopleRepository.findByUsername(username)
-                        .orElseThrow(() -> new UsernameNotFoundException("User not found!")) ////Будет отображено в Web-форме by Spring
+                peopleRepository.findByUsername(username) //Исключение будет перехвачено Spring, т.к. используем поставляемый AuthenticationProvider.
+                        .orElseThrow(() -> new UsernameNotFoundException("User not found!")) //Будет отображено в Web-форме by Spring.
         );
     }
 }

@@ -15,7 +15,10 @@ import com.study.rost.services.PersonDetailsService;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-@Component
+/**
+ * Disabled, because we haven't (for example) own CAS and consequently don't need it.
+ */
+//@Component
 public class AuthenticationProviderImpl implements AuthenticationProvider {
     private final PersonDetailsService personDetailsService;
 
