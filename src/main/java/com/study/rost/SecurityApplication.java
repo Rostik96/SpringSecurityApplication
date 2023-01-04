@@ -8,15 +8,8 @@ import com.study.rost.services.PeopleService;
 import lombok.AllArgsConstructor;
 
 @SpringBootApplication
-@AllArgsConstructor
-public class SecurityApplication implements CommandLineRunner {
-	private final PeopleService peopleService;
+public class SecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SecurityApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) {
-		peopleService.index().forEach(System.out::println);
 	}
 }
