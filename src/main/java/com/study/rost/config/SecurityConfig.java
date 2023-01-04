@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter { //Главный класс, где мы настраиваем Spring Security
+public class SecurityConfig extends WebSecurityConfigurerAdapter { //Главный класс, где мы настраиваем Spring Security.
     private final AuthenticationProvider authenticationProviderImpl;
 
     //Настраивает аутентификацию
