@@ -28,7 +28,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
      *         который будет помещён в сессию данного principal'a (пользователя), предосталяя нам доступ
      *         к его {@link PersonDetails}.
      *
-     * @throws AuthenticationException
+     * @throws AuthenticationException в случае ошибки в рамках аутентификации
      */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
