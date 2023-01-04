@@ -37,8 +37,12 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 
         UserDetails personDetails = personDetailsService.loadUserByUsername(username);
 
+        /**
+         * Пока храним пароли в незашифрованном виде, что неправильно.
+         * //TODO добавить шифрование
+         */
         if (!password.equals(personDetails.getPassword()))
-            throw new BadCredentialsException("Incorrect password");
+            throw new BadCredentialsException("Incorrect password"); //Также будет отображено в Web-форме by Spring
 
         return new UsernamePasswordAuthenticationToken(personDetails, password, Collections.emptyList());
     }
