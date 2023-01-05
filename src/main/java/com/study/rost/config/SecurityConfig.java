@@ -23,20 +23,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
+        http.authorizeRequests()
                     .antMatchers("/auth/login", "/auth/registration", "/error").permitAll()
                     .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/auth/login")
-                .loginProcessingUrl("/process_login") //Security будет ждать логин/пароль по данному адресу.
-                .defaultSuccessUrl("/hello", true)
-                .failureUrl("/auth/login?error")
+                    .formLogin()
+                    .loginPage("/auth/login")
+                    .loginProcessingUrl("/process_login") //Security будет ждать логин/пароль по данному адресу.
+                    .defaultSuccessUrl("/hello", true)
+                    .failureUrl("/auth/login?error")
                 .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/auth/login");
+                    .logout()
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/auth/login");
     }
 
     //Настраиваем логику аутентификацию
