@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login page</title>
 </head>
 <body>
-<form name="f" method="POST" action="/process_login">
+<form method="POST" action="/process_login">
+    <!-- В остальные формы данное скрытое поле будет добавлено автоматически by Thymeleaf -->
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
     <label for="username">Введите имя пользователя: </label>
     <input type="text" name="username" id="username"/>
     <br/>
