@@ -2,6 +2,8 @@ package com.study.rost.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +12,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.study.rost.security.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,8 +42,7 @@ public class Person {
     @Column(name = "password")
     private String password;
 
-    public Person(String username, int yearOfBirth) {
-        this.username = username;
-        this.yearOfBirth = yearOfBirth;
-    }
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
