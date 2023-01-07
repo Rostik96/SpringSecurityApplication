@@ -1,8 +1,10 @@
 package com.study.rost.security;
 
 import java.util.Collection;
+import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.study.rost.models.Person;
@@ -28,7 +30,8 @@ public class PersonDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        //Могли бы быть действия, как то: SHOW_ACCOUNT, WITHDRAW_MONEY, SEND_MONEY
+        return Collections.singletonList(new SimpleGrantedAuthority(person.getRole().name()));
     }
 
     @Override
