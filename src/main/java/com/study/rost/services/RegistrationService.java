@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.rost.models.Person;
 import com.study.rost.repositories.PeopleRepository;
+import com.study.rost.security.Role;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -17,6 +18,7 @@ public class RegistrationService {
         registered.setPassword(
                 passwordEncoder.encode(registered.getPassword())
         );
+        registered.setRole(Role.ROLE_USER);
         peopleRepository.save(registered);
     }
 }
